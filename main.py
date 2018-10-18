@@ -10,9 +10,13 @@ import requests
 
 bot = commands.Bot(command_prefix="!")
 
+
+#declaring the cogs which will be loaded
 initial_extensions = ["cogs.clear", "cogs.rarted"]
 
 logging.basicConfig(level=logging.INFO)
+
+
 # basic startup
 @bot.event
 async def on_ready():
@@ -20,6 +24,8 @@ async def on_ready():
     print("Ready")
     print("Im running on {} with the ID {}" .format(bot.user.name, bot.user.id))
 
+
+#load the commands/cogs
 if __name__ == "__main__":
     for extension in initial_extensions:
         try:
