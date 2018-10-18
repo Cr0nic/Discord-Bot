@@ -34,7 +34,7 @@ if __name__ == "__main__":
             print("Failed to load extension {}".format(extension))
             traceback.print_exc()
 
- 
+ #some troll command 
 @bot.event
 async def on_message(message):
     if message.content.startswith("ur gay"):

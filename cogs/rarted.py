@@ -4,11 +4,14 @@ import random
 import aiohttp
 import asyncio
 
+
+#fetch for the insult command
 async def fetch(session, url):
     async with session.get(url) as response:
         return await response.text()
 
 
+#insult api
 URL = "https://insult.mattbas.org/api/insult"
 
 
