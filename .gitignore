@@ -2,3 +2,4 @@ SECRETS.py
 /__pycache__
 whatdoicallthis.py
 .gitignore
+cogs/__pycache__
