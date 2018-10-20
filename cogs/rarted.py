@@ -12,7 +12,8 @@ async def fetch(session, url):
 
 
 #insult api
-URL = "https://insult.mattbas.org/api/insult"
+insult_url = "https://insult.mattbas.org/api/insult"
+dog_url = "https://dog.ceo/api/breeds/image/random "
 
 
 class RartedCog:
@@ -23,10 +24,17 @@ class RartedCog:
     @commands.command(name="insult")
     async def insult(self, ctx, *, user_insulted: str):
         async with aiohttp.ClientSession() as session:
-            raw_text = await fetch(session, URL)
+            raw_text = await fetch(session, insult_url)
             text_1 = raw_text.replace("You", user_insulted, 1)
             final_phrase = text_1.replace("are", "is", 1)
             await ctx.send(final_phrase)
+
+    @commands.command(name="Doggo")
+    async def doggo(self,ctx)
+    async with aiohttp.ClientSession() as session:
+        dog_picture = await fetch(session, dog_url)
+        await ctx.send(dog_picture)
+
 
 def setup(bot):
     bot.add_cog(RartedCog(bot))        
