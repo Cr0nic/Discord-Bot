@@ -39,7 +39,7 @@ class RartedCog:
         async with aiohttp.ClientSession() as session:
             dog_picture = await fetch_json(session, dog_url)
 
-            embed = discord.Embed(colour=0x98FB98)
+            embed = discord.Embed(colour=0x8023c6)
             embed.set_image(url=dog_picture[0])
 
             await ctx.send(embed=embed)
