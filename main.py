@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
 import SECRETS
+import STATICS
 import sys
 import traceback
 import logging
-import STATICS
 import requests
 
 
@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix="!")
 
 
 #declaring the cogs which will be loaded
-initial_extensions = ["cogs.clear", "cogs.rarted"]
+initial_extensions = ["cogs.useful", "cogs.rarted"]
 
 logging.basicConfig(level=logging.INFO)
 
@@ -34,7 +34,8 @@ if __name__ == "__main__":
             print("Failed to load extension {}".format(extension))
             traceback.print_exc()
 
- #some troll command d
+
+ #some troll command 
 @bot.event
 async def on_message(message):
     if message.content.startswith("ur gay"):

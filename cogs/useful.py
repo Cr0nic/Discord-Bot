@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class ClearCog:
+class UsefulCog:
     def __init__(self, bot):
         self.bot = bot
 
@@ -17,4 +17,4 @@ class ClearCog:
 
 
 def setup(bot):
-    bot.add_cog(ClearCog(bot))
+    bot.add_cog(UsefulCog(bot))

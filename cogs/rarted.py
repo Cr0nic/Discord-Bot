@@ -16,7 +16,7 @@ async def fetch_json(session, url):
         return await response.json()
 
 
-#insult api
+#api's
 insult_url = "https://insult.mattbas.org/api/insult"
 dog_url = "http://shibe.online/api/shibes?"
 
