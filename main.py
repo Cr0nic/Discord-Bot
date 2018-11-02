@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix="!")
 
 
 #declaring the cogs which will be loaded
-initial_extensions = ["cogs.useful", "cogs.rarted"]
+initial_extensions = ["cogs.useful", "cogs.rarted", "cogs.command_error_handler"]
 
 logging.basicConfig(level=logging.INFO)
 

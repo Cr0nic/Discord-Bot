@@ -5,20 +5,22 @@ import aiohttp
 import asyncio
 import json
 
+
 #fetch with plain text
-async def fetch_text(session, url):
-    async with session.get(url) as response:
+async def fetch_text(session, URL):
+    async with session.get(URL) as response:
         return await response.text()
 
 #fetch with json data
-async def fetch_json(session, url):
-    async with session.get(url) as response:
+async def fetch_json(session, URL):
+    async with session.get(URL) as response:
         return await response.json()
 
 
 #api's
 insult_url = "https://insult.mattbas.org/api/insult"
 dog_url = "http://shibe.online/api/shibes?"
+gif_url = "https://giphy.com/stories/puppies-just-because-071b820a-4901"
 
 
 class RartedCog:
@@ -43,6 +45,12 @@ class RartedCog:
             embed.set_image(url=dog_picture[0])
 
             await ctx.send(embed=embed)
+    
+    @commands.command()
+    async def gif(self ,ctx ):
+        async with aiohttp.ClientSession() as session:
+            gif = await fetch_text(session, gif_url)
+            print(gif)
 
 
 def setup(bot):
