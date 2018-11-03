@@ -5,14 +5,14 @@ import STATICS
 import sys
 import traceback
 import logging
-import requests
+
 
 
 bot = commands.Bot(command_prefix="!")
 
 
 #declaring the cogs which will be loaded
-initial_extensions = ["cogs.useful", "cogs.rarted", "cogs.command_error_handler"]
+initial_extensions = ["cogs.useful", "cogs.rarted", "cogs.gif", "cogs.command_error_handler"]
 
 logging.basicConfig(level=logging.INFO)
 

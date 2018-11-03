@@ -20,7 +20,6 @@ async def fetch_json(session, URL):
 #api's
 insult_url = "https://insult.mattbas.org/api/insult"
 dog_url = "http://shibe.online/api/shibes?"
-gif_url = "https://giphy.com/stories/puppies-just-because-071b820a-4901"
 
 
 class RartedCog:
@@ -46,12 +45,6 @@ class RartedCog:
 
             await ctx.send(embed=embed)
     
-    @commands.command()
-    async def gif(self ,ctx ):
-        async with aiohttp.ClientSession() as session:
-            gif = await fetch_text(session, gif_url)
-            print(gif)
-
-
+    
 def setup(bot):
     bot.add_cog(RartedCog(bot))        
