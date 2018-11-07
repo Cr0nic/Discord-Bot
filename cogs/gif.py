@@ -9,7 +9,6 @@ import SECRETS
 
 api_instance = giphy_client.DefaultApi()
 api_key = SECRETS.giphy_key
-#q = "dogs"
 limit = 1
 offset = 0
 lang = "en"
@@ -36,7 +35,7 @@ class Gif_Cog:
             print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
 
 
-    @commands.command(name="random_gif")
+    @commands.command(name="randomgif")
     async def random_gif(self, ctx):
         try:
             api_response = api_instance.gifs_random_get(api_key, fmt=fmt)

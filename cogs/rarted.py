@@ -20,6 +20,8 @@ async def fetch_json(session, URL):
 #api's
 insult_url = "https://insult.mattbas.org/api/insult"
 dog_url = "http://shibe.online/api/shibes?"
+cat_url ="http://shibe.online/api/cats"
+bird_url ="http://shibe.online/api/birds"
 
 
 class RartedCog:
@@ -34,13 +36,36 @@ class RartedCog:
             text_1 = raw_text.replace("You", user_insulted, 1)
             final_phrase = text_1.replace("are", "is", 1)
             await ctx.send(final_phrase)
+            
 
     @commands.command(name="doggo")
-    async def doggo(self, ctx):
+    async def dog_picture(self, ctx):
         async with aiohttp.ClientSession() as session:
             dog_picture = await fetch_json(session, dog_url)
 
-            embed = discord.Embed(colour=0x8023c6)
+            embed = discord.Embed(colour=0xf9e390)
+            embed.set_image(url=dog_picture[0])
+
+            await ctx.send(embed=embed)
+
+
+    @commands.command(name="birdo")
+    async def bird_picture(self, ctx):
+        async with aiohttp.ClientSession() as session:
+            dog_picture = await fetch_json(session, bird_url)
+
+            embed = discord.Embed(colour=0x53c160)
+            embed.set_image(url=dog_picture[0])
+
+            await ctx.send(embed=embed)
+    
+
+    @commands.command(name="cat")
+    async def cat_picture(self, ctx):
+        async with aiohttp.ClientSession() as session:
+            dog_picture = await fetch_json(session, cat_url)
+
+            embed = discord.Embed(colour=0x151826)
             embed.set_image(url=dog_picture[0])
 
             await ctx.send(embed=embed)

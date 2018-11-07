@@ -13,6 +13,13 @@ class UsefulCog:
         else:
             await ctx.channel.purge(limit=amount + 1)
             await ctx.send("deleted {} messages" .format(amount))
+    
+
+
+    #make a help command
+    # @commands.command(name="help")
+    # async def help(self, ctx):
+
 
 
 
