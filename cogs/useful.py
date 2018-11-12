@@ -16,9 +16,10 @@ class UsefulCog:
     
 
 
-    #make a help command
-    # @commands.command(name="help")
-    # async def help(self, ctx):
+    make a help command
+    @commands.command(name="help")
+    async def help(self, ctx):
+        embed = discord.Embed(colour=0x53c160)
 
 
 

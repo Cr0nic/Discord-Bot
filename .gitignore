@@ -2,6 +2,7 @@ SECRETS.py
 /__pycache__
 whatdoicallthis.py
 .gitignore
-cogs/__pycache__
+cogs/__pycache__/*
 todo
 giphy.py
+*.pyc
