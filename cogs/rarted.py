@@ -4,7 +4,7 @@ import random
 import aiohttp
 import asyncio
 import json
-
+import random as r
 
 #fetch with plain text
 async def fetch_text(session, URL):
@@ -22,6 +22,21 @@ insult_url = "https://insult.mattbas.org/api/insult"
 dog_url = "http://shibe.online/api/shibes?"
 cat_url ="http://shibe.online/api/cats"
 bird_url ="http://shibe.online/api/birds"
+
+#pictures for rock paper scissor
+scissor_file = discord.File("scissor_man.jpg")
+rock_file = discord.File("the_rock.jpg")
+paper_file = discord.File("paper_man.jpg")
+
+#rock paper scissor compare
+def compare(player_c, computer):
+        results = {("Rock", "Paper"): False,
+                ("Rock", "Scissor"): True,
+                ("Paper", "Rock"): True,
+                ("Paper", "Scissor"): False,
+                ("Scissor", "Rock"): False,
+                ("Scissor", "Paper"): True}
+        return results[player_c, computer]
 
 
 class RartedCog:
@@ -70,6 +85,33 @@ class RartedCog:
 
             await ctx.send(embed=embed)
     
-    
+
+    @commands.command(name="picture")
+    async def picture(self, ctx):
+        await ctx.send(file=scissor_file)
+        await ctx.send(file=rock_file)
+        await ctx.send(file=paper_file)
+
+    @commands.command(name="rps")
+    async def rock_paper_scissor(self, ctx, player_choose :str):
+        c = {1: "Rock", 2: "Paper", 3: "Scissor"}
+        computer = c[r.randint(1, 3)]
+        player_c = player_choose.capitalize()
+        if computer == "Rock":
+            await ctx.send(file=rock_file)
+        elif computer == "Paper":
+            await ctx.send(file=paper_file)
+        elif computer == "Scissor":
+            await ctx.send(file=scissor_file)
+        
+        if player_c == computer:
+            await ctx.send("Tie, bakka")
+        elif compare(player_c, computer):
+            await ctx.send("You won, dick")
+        else:
+            await ctx.send("UwU you lost haha")
+            
+
+
 def setup(bot):
     bot.add_cog(RartedCog(bot))        
